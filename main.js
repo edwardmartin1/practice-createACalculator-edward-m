@@ -1,47 +1,38 @@
 const input = require("readline-sync");
 
-function absoluteValueCalculation(num = 0)
-{
+function absoluteValueCalculation(num = 0) {
     return Math.abs(num);
 }
 
-function powerCalculation(base = 0, power = 0)
-{
+function powerCalculation(base = 0, power = 0) {
     return Math.pow(base, power);
 }
 
-function squareRootFinder(num)
-{
+function squareRootFinder(num) {
     return Math.sqrt(num);
 }
 
-function maximumFinder(numArray = [])
-{
+function maximumFinder(numArray = []) {
     return Math.max(...numArray);
 }
 
-function minimumFinder(numArray = [])
-{
+function minimumFinder(numArray = []) {
     return Math.min(...numArray);
 }
 
-function mixMaxFinder(numArray = [])
-{
+function mixMaxFinder(numArray = []) {
     console.log(`Max: ${maximumFinder(numArray)}`);
     console.log(`Min: ${minimumFinder(numArray)}`);
 }
 
-function randomNumberGenerator(min, max)
-{
+function randomNumberGenerator(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function customRounding(num = 0, numDecimalPlaces = 0)
-{
+function customRounding(num = 0, numDecimalPlaces = 0) {
     let multiplier = "1";
 
-    for (i = 0; i < numDecimalPlaces; i++)
-    {
+    for (i = 0; i < numDecimalPlaces; i++) {
         multiplier += "0";
     }
 
@@ -53,8 +44,7 @@ function customRounding(num = 0, numDecimalPlaces = 0)
 
 let operation = 0;
 
-while (true)
-{
+while (true) {
     operation = input.questionInt(`Select an operation:
  1) Absolute Value Calculation
  2) Power Calculation
@@ -66,16 +56,14 @@ while (true)
  # `);
 
     /* Absolute Value Calculation */
-    if (operation === 1)
-    {        
+    if (operation === 1) {        
         let inputAbsNum = input.questionFloat(`Enter a number: `);
 
         console.log(absoluteValueCalculation(inputAbsNum));
         console.log();
     }
     /* Power Calculation */
-    else if (operation === 2)
-    {
+    else if (operation === 2) {
         let inputBaseNum = input.questionFloat(`Enter base number: `);
         let inputPowerNum = input.questionFloat(`Enter power number: `);
 
@@ -83,46 +71,39 @@ while (true)
         console.log();
     }
     /* Square Root Finder */
-    else if (operation === 3)
-    {
+    else if (operation === 3) {
         let inputSquareRootNum = input.questionFloat(`Enter a number: `);
 
         console.log(squareRootFinder(inputSquareRootNum));
         console.log();
     }
     /* Maximum and Minimum Finder */
-    else if (operation === 4)
-    {
+    else if (operation === 4) {
         let inputMinMaxNum = input.question(`Enter a list of space delimited numbers: `);
         let numArray = inputMinMaxNum.split(" ");
 
-        for (let i = 0; i < numArray.length; i++)
-        {
+        for (let i = 0; i < numArray.length; i++) {
             numArray[i] = Number(numArray[i]);
         }
 
         mixMaxFinder(numArray);
     }
     /* Random Number Generator */
-    else if (operation === 5)
-    {
+    else if (operation === 5) {
         let inputRandomNumberLowRange = input.questionFloat(`Enter low range number: `);
         let inputRandomNumberHighRange = input.questionFloat(`Enter high range number: `);
         
-        if (inputRandomNumberLowRange <= inputRandomNumberHighRange)
-        {
+        if (inputRandomNumberLowRange <= inputRandomNumberHighRange) {
             console.log(randomNumberGenerator(inputRandomNumberLowRange, inputRandomNumberHighRange));
         }
-        else
-        {
+        else {
             console.log("Error: Low range must be less than high range");
         }    
             
         console.log();
     }
     /* Custom Rounding */
-    else if (operation === 6)
-    {
+    else if (operation === 6) {
         let inputRoundNum = input.questionFloat(`Enter a number: `);
         let inputRoundDecimalPlaces = input.questionFloat(`Enter number decimal places: `);
         
@@ -130,14 +111,11 @@ while (true)
         console.log();
     }
     /* Exit Calculator */
-    else if (operation === 7)
-    {
+    else if (operation === 7) {
         return;
     }    
-    else
-    {
+    else {
         console.log("Error: Invalid Choice");
     }
-
 }
 
